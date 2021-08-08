@@ -1,4 +1,6 @@
-version: "3.9"
+version: "3"
 services:
-  redis:
-    image: redis
+  web:
+    image: 241440207566.dkr.ecr.ap-southeast-2.amazonaws.com/govhack-backend-repo:latest
+    ports:
+      - "80:80"
