@@ -1,6 +1,15 @@
 version: "3"
 services:
-  web:
-    image: 241440207566.dkr.ecr.ap-southeast-2.amazonaws.com/govhack-backend-repo:latest
+  nginx:
+    image: nginx:stable
     ports:
       - "80:80"
+    links:
+      - web
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d:ro
+
+  web:
+    image: 241440207566.dkr.ecr.ap-southeast-2.amazonaws.com/govhack-backend-repo:latest
+    expose:
+      - "80"
